@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="MAINFORM" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplicationmety.DashboardController">
+   <children>
+      <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane layoutX="22.0" layoutY="60.0" prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="45.0" prefWidth="200.0" styleClass="semi-top-form" stylesheets="@dashboard.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane prefHeight="37.0" prefWidth="900.0" styleClass="top-form" stylesheets="@dashboard.css" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FontAwesomeIcon fill="#1e0f0f" glyphName="CAR" layoutX="14.0" layoutY="23.0" size="1.5em" />
+                              <Label layoutX="52.0" layoutY="4.0" prefHeight="23.0" prefWidth="194.0" text="Car Sales Management System" textFill="#1d6b6b">
+                                 <font>
+                                    <Font name="Tahoma" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="MINBTNHOME" layoutX="820.0" layoutY="3.0" mnemonicParsing="false" onAction="#minimize" prefHeight="22.0" prefWidth="30.0" styleClass="minimize" stylesheets="@dashboard.css">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="closeBTNHOME" layoutX="859.0" layoutY="4.0" mnemonicParsing="false" onAction="#close" prefHeight="26.0" prefWidth="25.0" styleClass="close" stylesheets="@dashboard.css">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="CLOSE" text="" />
+                                 </graphic>
+                              </Button>
+                              <FontAwesomeIcon glyphName="MINUS" layoutX="830.0" layoutY="22.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="7.0" layoutY="134.0" prefHeight="559.0" prefWidth="200.0" styleClass="nav-form" stylesheets="@dashboard.css" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FontAwesomeIcon fill="#42ffd3" glyphName="USER" layoutX="67.0" layoutY="94.0" size="7em" />
+                              <Label layoutX="74.0" layoutY="106.0" text="Welcome," textFill="#8cd9ff" />
+                              <Label fx:id="UserName" alignment="CENTER" layoutX="56.0" layoutY="124.0" onDragDetected="#displayUsername" prefHeight="15.0" prefWidth="89.0" textFill="#7dea8f">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="78.39999389648438" endY="-1.52587890625E-5" layoutX="100.0" layoutY="149.0" startX="-75.20000457763672" startY="-1.52587890625E-5" />
+                              <Button fx:id="HomeBTN" layoutX="24.0" layoutY="167.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="150.0" styleClass="nav-btn" stylesheets="@dashboard.css" text="Home" />
+                              <Button fx:id="ClientBtn" layoutX="26.0" layoutY="207.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="150.0" styleClass="nav-btn" stylesheets="@dashboard.css" text="Client" />
+                              <Button fx:id="logout" layoutX="10.0" layoutY="521.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="28.0" styleClass="logout" stylesheets="@dashboard.css">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="SIGN_OUT" size="1.5em" />
+                                 </graphic></Button>
+                              <Label layoutX="55.0" layoutY="525.0" text="Logout" textFill="#fffbfb" />
+                              <Button fx:id="CarBtn" layoutX="24.0" layoutY="248.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="150.0" styleClass="nav-btn" stylesheets="@dashboard.css" text="Car" />
+                              <Button fx:id="MarketBtn" layoutX="24.0" layoutY="287.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="150.0" styleClass="nav-btn" stylesheets="@dashboard.css" text="Market" />
+                              <Button fx:id="carsCommandedBtn" layoutX="24.0" layoutY="325.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="150.0" styleClass="nav-btn" stylesheets="@dashboard.css" text="Command" />
+                              <Button fx:id="listOfCarBtn" layoutX="24.0" layoutY="368.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="150.0" styleClass="nav-btn" stylesheets="@dashboard.css" text="List of Car" />
+                              <Button fx:id="SFTBTN" layoutX="24.0" layoutY="412.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="150.0" styleClass="nav-btn" stylesheets="@dashboard.css" text="Sale figure" />
+                              <Button fx:id="invoiceBTN" layoutX="26.0" layoutY="455.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="150.0" styleClass="nav-btn" stylesheets="@dashboard.css" text="Invoice" />
+                              <FontAwesomeIcon fill="#f8ffb8" glyphName="HOME" layoutX="43.0" layoutY="186.0" selectionFill="#e4e2e2" text="" />
+                              <FontAwesomeIcon fill="#f8ffb8" glyphName="USER" layoutX="44.0" layoutY="226.0" />
+                              <FontAwesomeIcon fill="#f8ffb8" glyphName="CAR" layoutX="43.0" layoutY="267.0" text="" />
+                              <FontAwesomeIcon fill="#f8ffb8" glyphName="MONEY" layoutX="43.0" layoutY="307.0" text="" />
+                              <FontAwesomeIcon fill="#f8ffb8" glyphName="SEARCH" layoutX="43.0" layoutY="344.0" />
+                              <FontAwesomeIcon fill="#f8ffb8" glyphName="SEARCH" layoutX="42.0" layoutY="388.0" />
+                              <FontAwesomeIcon fill="#f8ffb8" glyphName="SEARCH" layoutX="43.0" layoutY="431.0" />
+                              <FontAwesomeIcon fill="#f8ffb8" glyphName="SEARCH" layoutX="44.0" layoutY="474.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="554.0" prefWidth="691.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="CarPane" prefHeight="553.0" prefWidth="702.0" visible="false">
+                           <children>
+                              <AnchorPane layoutY="6.0" prefHeight="554.0" prefWidth="701.0" styleClass="white-bg" stylesheets="@dashboard.css">
+                                 <children>
+                                    <AnchorPane layoutX="5.0" prefHeight="264.0" prefWidth="690.0">
+                                       <children>
+                                          <TableView fx:id="CarTBV" layoutX="15.0" layoutY="68.0" onMouseClicked="#carSelectTBV" prefHeight="195.0" prefWidth="661.0">
+                                            <columns>
+                                              <TableColumn fx:id="idcar_col" prefWidth="41.5999755859375" text="Id" />
+                                              <TableColumn fx:id="numcar_col" prefWidth="108.80003356933594" text="Number" />
+                                                <TableColumn fx:id="designcar_col" prefWidth="150.39996337890625" text="Design" />
+                                                <TableColumn fx:id="pu_col" minWidth="0.0" prefWidth="180.0" text="Unit Price" />
+                                                <TableColumn fx:id="stockcar_col" prefWidth="57.60003662109375" text="Stock" />
+                                            </columns>
+                                          </TableView>
+                                          <TextField fx:id="carSearchTextField" layoutX="14.0" layoutY="27.0" onKeyTyped="#CarSearch" prefHeight="26.0" prefWidth="246.0" promptText="SEARCH" />
+                                          <FontAwesomeIcon glyphName="SEARCH" layoutX="235.0" layoutY="44.0" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Label layoutX="44.0" layoutY="329.0" text="Number" />
+                                    <Label layoutX="44.0" layoutY="417.0" text="Design" />
+                                    <Label layoutX="362.0" layoutY="417.0" text="Stock" />
+                                    <Label layoutX="362.0" layoutY="329.0" text="Unit Price" />
+                                    <TextField fx:id="numberCarTextField" layoutX="115.0" layoutY="325.0" prefHeight="26.0" prefWidth="209.0" />
+                                    <TextField fx:id="designCarTextField" layoutX="115.0" layoutY="412.0" prefHeight="26.0" prefWidth="209.0" />
+                                    <TextField fx:id="unitPriceTCarextField" layoutX="452.0" layoutY="325.0" prefHeight="26.0" prefWidth="94.0" />
+                                    <TextField fx:id="stockCarTextField" layoutX="452.0" layoutY="412.0" prefHeight="26.0" prefWidth="96.0" />
+                                    <Button fx:id="AddCarBtn" layoutX="55.0" layoutY="482.0" mnemonicParsing="false" onAction="#CarAdd" prefHeight="30.0" prefWidth="100.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add" />
+                                    <Button fx:id="ClearCarBtn" layoutX="208.0" layoutY="482.0" mnemonicParsing="false" onAction="#CarClear" prefHeight="30.0" prefWidth="100.0" styleClass="clear-btn" stylesheets="@dashboard.css" text="Clear" />
+                                    <Button fx:id="UpdateCarBtn" layoutX="377.0" layoutY="482.0" mnemonicParsing="false" onAction="#CarUpdate" prefHeight="30.0" prefWidth="100.0" styleClass="update-btn" stylesheets="@dashboard.css" text="Update" />
+                                    <Button fx:id="DeleteCarBtn" layoutX="546.0" layoutY="482.0" mnemonicParsing="false" onAction="#CarDelete" prefHeight="30.0" prefWidth="100.0" styleClass="delete-btn" stylesheets="@dashboard.css" text="Delete" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="ClientFORM" layoutX="9.0" layoutY="7.0" prefHeight="531.0" prefWidth="678.0" styleClass="white-bg" stylesheets="@dashboard.css" visible="false">
+                           <children>
+                              <Label layoutX="53.0" layoutY="328.0" />
+                              <Label layoutX="35.0" layoutY="293.0" text="Number" />
+                              <TextField fx:id="numberCliTextField" layoutX="158.0" layoutY="289.0" styleClass="textfield" stylesheets="@dashboard.css" />
+                              <Label layoutX="35.0" layoutY="368.0" text="Name" />
+                              <TextField fx:id="nameCliTextField" layoutX="159.0" layoutY="364.0" styleClass="textfield" stylesheets="@dashboard.css" />
+                              <Button fx:id="addCliBtn" layoutX="35.0" layoutY="430.0" mnemonicParsing="false" onAction="#addClienAdd" prefHeight="30.0" prefWidth="100.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add" />
+                              <Button fx:id="updateCliBtn" layoutX="193.0" layoutY="430.0" mnemonicParsing="false" onAction="#addClientUpdate" prefHeight="30.0" prefWidth="100.0" styleClass="update-btn" stylesheets="@dashboard.css" text="Update" />
+                              <Button fx:id="deleteCliBtn" layoutX="539.0" layoutY="430.0" mnemonicParsing="false" onAction="#addClientDelete" prefHeight="30.0" prefWidth="100.0" styleClass="delete-btn" stylesheets="@dashboard.css" text="Delete" />
+                              <Button fx:id="clearCliBtn" layoutX="362.0" layoutY="430.0" mnemonicParsing="false" onAction="#clientReset" prefHeight="30.0" prefWidth="100.0" styleClass="clear-btn" stylesheets="@dashboard.css" text="Clear" />
+                              <AnchorPane onKeyTyped="#ClientSearch" prefHeight="258.0" prefWidth="680.0">
+                                 <children>
+                                    <TableView fx:id="ClientTBV" layoutX="15.0" layoutY="50.0" onMouseClicked="#addClientSelect" onSort="#addClientSelect" prefHeight="200.0" prefWidth="648.0">
+                                      <columns>
+                                        <TableColumn fx:id="idCli_col" prefWidth="97.59996032714844" text="Client ID" />
+                                        <TableColumn fx:id="numberCli_col" minWidth="0.0" prefWidth="215.20001220703125" text="Number" />
+                                          <TableColumn fx:id="nameClient_col" minWidth="0.0" prefWidth="326.39996337890625" text="Name" />
+                                      </columns>
+                                    </TableView>
+                                    <TextField fx:id="searchClientTextField" layoutX="15.0" layoutY="14.0" onKeyTyped="#ClientSearch" prefHeight="26.0" prefWidth="282.0" promptText="Search" styleClass="search" stylesheets="@dashboard.css" />
+                                    <FontAwesomeIcon glyphName="SEARCH" layoutX="275.0" layoutY="31.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="HomePane" layoutX="21.0" layoutY="12.0" prefHeight="523.0" prefWidth="658.0" styleClass="white-bg" stylesheets="@dashboard.css">
+                           <children>
+                              <BarChart fx:id="barChar" layoutX="9.0" layoutY="69.0" prefHeight="385.0" prefWidth="640.0" title="Car Management">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </BarChart>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="CommandPane" prefHeight="557.0" prefWidth="702.0" styleClass="white-bg" stylesheets="@dashboard.css" visible="false">
+                           <children>
+                              <AnchorPane layoutX="1.0" prefHeight="279.0" prefWidth="698.0" styleClass="white-bg" stylesheets="@dashboard.css">
+                                 <children>
+                                    <TextField fx:id="CommandSearchTextField" layoutX="23.0" layoutY="32.0" onKeyTyped="#CommandSearch" prefHeight="26.0" prefWidth="204.0" promptText="SEARCH" styleClass="search" stylesheets="@dashboard.css" />
+                                    <TableView fx:id="CommandTBV" layoutX="25.0" layoutY="72.0" onMouseClicked="#SelectCommandTBV" prefHeight="200.0" prefWidth="648.0" stylesheets="@dashboard.css">
+                                      <columns>
+                                        <TableColumn fx:id="idcomm_col" prefWidth="39.99998474121094" text="Id" />
+                                        <TableColumn fx:id="carnumcomm_col" prefWidth="110.4000244140625" text="Car " />
+                                          <TableColumn fx:id="clinumcomm_col" prefWidth="110.4000244140625" text="Client " />
+                                          <TableColumn fx:id="qtecomm_col" prefWidth="63.99993896484375" text="Quantity" />
+                                          <TableColumn fx:id="datecomm_col" prefWidth="200.79998779296875" text="Date" />
+                                          <TableColumn fx:id="numcomm_col" prefWidth="115.199951171875" text="Command Number" />
+                                      </columns>
+                                       <styleClass>
+                                          <String fx:value="column-header" />
+                                          <String fx:value="table-column" />
+                                          <String fx:value="table-view" />
+                                       </styleClass>
+                                    </TableView>
+                                    <FontAwesomeIcon glyphName="SEARCH" layoutX="207.0" layoutY="49.0" />
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="29.0" layoutY="314.0" text="Number" />
+                              <TextField fx:id="numCommTextFIeld" layoutX="114.0" layoutY="310.0" styleClass="textfield" stylesheets="@dashboard.css" />
+                              <Label layoutX="29.0" layoutY="367.0" text="Car" />
+                              <ComboBox fx:id="numCarCommCB" layoutX="113.0" layoutY="363.0" onAction="#NumCarCB" prefWidth="150.0" styleClass="textfield" stylesheets="@dashboard.css" />
+                              <Label layoutX="32.0" layoutY="420.0" text="Client" />
+                              <ComboBox fx:id="numCliCommCB" layoutX="113.0" layoutY="416.0" onAction="#NumClientCB" prefWidth="150.0" styleClass="textfield" stylesheets="@dashboard.css" />
+                              <Label layoutX="351.0" layoutY="336.0" text="Quantity" />
+                              <TextField fx:id="qteCommTextField" layoutX="438.0" layoutY="332.0" prefHeight="26.0" prefWidth="173.0" styleClass="textfield" stylesheets="@dashboard.css" />
+                              <Label layoutX="351.0" layoutY="398.0" text="Date" />
+                              <DatePicker fx:id="dateComm" layoutX="438.0" layoutY="394.0" styleClass="textfield" stylesheets="@dashboard.css" />
+                              <Button fx:id="addCommBtn" layoutX="51.0" layoutY="492.0" mnemonicParsing="false" onAction="#AddCommand" prefHeight="30.0" prefWidth="100.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add" />
+                              <Button fx:id="clearCommBtn" layoutX="199.0" layoutY="492.0" mnemonicParsing="false" onAction="#CommandClear" prefHeight="30.0" prefWidth="100.0" styleClass="clear-btn" stylesheets="@dashboard.css" text="Clear" />
+                              <Button fx:id="updateCommBtn" layoutX="347.0" layoutY="492.0" mnemonicParsing="false" onAction="#UpdateCommand" prefHeight="30.0" prefWidth="100.0" styleClass="update-btn" stylesheets="@dashboard.css" text="Update" />
+                              <Button fx:id="deleteCommBtn" layoutX="500.0" layoutY="492.0" mnemonicParsing="false" onAction="#DeleteCommand" prefHeight="30.0" prefWidth="100.0" styleClass="delete-btn" stylesheets="@dashboard.css" text="Delete" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="carsCommandedPane" layoutX="8.0" layoutY="26.0" prefHeight="513.0" prefWidth="682.0" styleClass="white-bg" stylesheets="@dashboard.css" visible="false">
+                           <children>
+                              <AnchorPane layoutX="12.0" layoutY="29.0" prefHeight="95.0" prefWidth="667.0" styleClass="white-bg" stylesheets="@dashboard.css">
+                                 <children>
+                                    <AnchorPane layoutX="53.0" layoutY="7.0" prefHeight="110.0" prefWidth="576.0" styleClass="card">
+                                       <children>
+                                          <Label fx:id="totalCar2Date" layoutX="280.0" layoutY="14.0" textFill="#cfc6c9">
+                                             <font>
+                                                <Font name="Tahoma" size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="237.0" layoutY="71.0" text="Total Command" textFill="#20f2fa">
+                                             <font>
+                                                <Font name="Tahoma" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <FontAwesomeIcon fill="#3290f4" glyphName="MONEY" layoutX="89.0" layoutY="84.0" size="3em" />
+                                       </children></AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="40.0" layoutY="232.0" text="From" />
+                              <DatePicker fx:id="dateFrom" layoutX="94.0" layoutY="228.0" styleClass="textfield" />
+                              <Label layoutX="317.0" layoutY="231.0" text="To" />
+                              <DatePicker fx:id="dateTo" layoutX="373.0" layoutY="227.0" styleClass="textfield" />
+                              <Button fx:id="serchCarsBtn" layoutX="568.0" layoutY="227.0" mnemonicParsing="false" onAction="#Searh2DateCars" prefHeight="26.0" prefWidth="46.0" styleClass="search" stylesheets="@dashboard.css" />
+                              <FontAwesomeIcon glyphName="SEARCH" layoutX="585.0" layoutY="246.0" text="" />
+                              <TableView fx:id="Car2dateTBV" layoutX="4.0" layoutY="308.0" prefHeight="200.0" prefWidth="672.0">
+                                <columns>
+                                  <TableColumn fx:id="carName_col" prefWidth="198.40000915527344" text="Car" />
+                                  <TableColumn fx:id="clientName_col" prefWidth="128.0" text="Client" />
+                                    <TableColumn fx:id="quantity_col" minWidth="0.0" prefWidth="62.39996337890625" text="Quantity" />
+                                    <TableColumn fx:id="numberCommand_col" prefWidth="125.60003662109375" text="Command" />
+                                    <TableColumn fx:id="dateCommande_col" minWidth="0.0" prefWidth="156.800048828125" text="Date" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="listOfCarPane" layoutX="15.0" layoutY="21.0" prefHeight="510.0" prefWidth="670.0" styleClass="white-bg" stylesheets="@dashboard.css" visible="false">
+                           <children>
+                              <AnchorPane layoutX="18.0" layoutY="25.0" prefHeight="130.0" prefWidth="634.0" styleClass="white-bg">
+                                 <children>
+                                    <AnchorPane layoutX="343.0" layoutY="15.0" prefHeight="100.0" prefWidth="246.0" styleClass="card" stylesheets="@dashboard.css">
+                                       <children>
+                                          <FontAwesomeIcon fill="#b18383" glyphName="MONEY" layoutX="29.0" layoutY="75.0" size="2.5em" />
+                                          <Label layoutX="98.0" layoutY="64.0" text="Total of Command" textFill="#25cdd9">
+                                             <font>
+                                                <Font name="Tahoma" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="totalCarLabel" layoutX="114.0" layoutY="14.0" prefHeight="30.0" prefWidth="18.0" textFill="#25cdd9">
+                                             <font>
+                                                <Font name="Tahoma" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children></AnchorPane>
+                                    <AnchorPane layoutX="44.0" layoutY="15.0" prefHeight="100.0" prefWidth="246.0" styleClass="card" stylesheets="@dashboard.css">
+                                       <children>
+                                          <FontAwesomeIcon fill="#b18383" glyphName="CAR" layoutX="29.0" layoutY="75.0" size="2.5em" />
+                                          <Label layoutX="91.0" layoutY="64.0" text="Total of Stock" textFill="#25cdd9">
+                                             <font>
+                                                <Font name="Tahoma" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="totalStockLabel" layoutX="128.0" layoutY="14.0" prefHeight="30.0" prefWidth="36.0" textFill="#25cdd9">
+                                             <font>
+                                                <Font name="Tahoma" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="197.0" layoutY="184.0" text="Car" />
+                              <ComboBox fx:id="carNameCB" layoutX="226.0" layoutY="180.0" onMouseClicked="#CarName" prefHeight="25.0" prefWidth="235.0" styleClass="textfield" />
+                              <Label layoutX="74.0" layoutY="243.0" text="From" />
+                              <DatePicker fx:id="dateFromCar" layoutX="138.0" layoutY="239.0" styleClass="textfield" />
+                              <Label layoutX="343.0" layoutY="243.0" text="To" />
+                              <DatePicker fx:id="dateToCar" layoutX="387.0" layoutY="239.0" styleClass="textfield" stylesheets="@dashboard.css" />
+                              <Button fx:id="listOfCarBtnSearch" layoutX="581.0" layoutY="238.0" mnemonicParsing="false" onAction="#SearchListOfCar" prefHeight="26.0" prefWidth="52.0" styleClass="search">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="SEARCH" wrappingWidth="37.67152559757233" />
+                                 </graphic>
+                              </Button>
+                              <TableView fx:id="listOfCarTBV" layoutX="38.0" layoutY="305.0" prefHeight="179.0" prefWidth="611.0">
+                                <columns>
+                                  <TableColumn fx:id="carNumber_col" prefWidth="128.0000457763672" text="Car " />
+                                  <TableColumn fx:id="clientNameCar_col" prefWidth="195.199951171875" text="Client" />
+                                    <TableColumn fx:id="qteCar_col" prefWidth="62.39996337890625" text="Quantity" />
+                                    <TableColumn fx:id="tttt_col" prefWidth="81.60003662109375" text="Command" />
+                                    <TableColumn fx:id="dateCar_col" prefWidth="139.199951171875" text="Date" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="SFPANE" layoutX="16.0" layoutY="16.0" prefHeight="526.0" prefWidth="669.0" styleClass="white-bg" stylesheets="@dashboard.css" visible="false">
+                           <children>
+                              <AnchorPane layoutX="27.0" layoutY="14.0" prefHeight="148.0" prefWidth="620.0" styleClass="white-bg" stylesheets="@dashboard.css">
+                                 <children>
+                                    <AnchorPane layoutX="33.0" layoutY="24.0" prefHeight="100.0" prefWidth="249.0" styleClass="card">
+                                       <children>
+                                          <FontAwesomeIcon fill="#9cfff8" glyphName="MONEY" layoutX="24.0" layoutY="89.0" size="2em" />
+                                          <Label layoutX="100.0" layoutY="74.0" text="SALE FIGURE" textFill="#9cfff8">
+                                             <font>
+                                                <Font name="Tahoma" size="11.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="SFTotale" layoutX="13.0" layoutY="24.0" prefHeight="26.0" prefWidth="224.0" textFill="#9cfff8">
+                                             <font>
+                                                <Font name="Tahoma" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children></AnchorPane>
+                                    <AnchorPane layoutX="315.0" layoutY="24.0" prefHeight="100.0" prefWidth="271.0" styleClass="card">
+                                       <children>
+                                          <Label fx:id="totl" layoutX="100.0" layoutY="14.0" prefHeight="18.0" prefWidth="70.0" textFill="#9cfff8">
+                                             <font>
+                                                <Font name="Tahoma" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="90.0" layoutY="64.0" prefHeight="18.0" prefWidth="90.0" text="TOTAL COMMAND" textFill="#9cfff8">
+                                             <font>
+                                                <Font name="Tahoma" size="11.0" />
+                                             </font>
+                                          </Label>
+                                          <FontAwesomeIcon fill="#9cfff8" glyphName="CHECK" layoutX="23.0" layoutY="81.0" size="2em" />
+                                       </children></AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="187.0" layoutY="202.0" text="Client" />
+                              <ComboBox fx:id="clientNameCB" layoutX="237.0" layoutY="197.0" onMouseClicked="#ClientName" prefHeight="26.0" prefWidth="198.0" styleClass="textfield" stylesheets="@dashboard.css" />
+                              <Label layoutX="88.0" layoutY="254.0" text="From" />
+                              <DatePicker fx:id="dateFromCli" layoutX="131.0" layoutY="250.0" styleClass="textfield" />
+                              <Label layoutX="335.0" layoutY="254.0" text="To" />
+                              <DatePicker fx:id="dateToCli" layoutX="378.0" layoutY="250.0" styleClass="textfield" />
+                              <Button fx:id="printCliBtn" layoutX="577.0" layoutY="250.0" mnemonicParsing="false" onAction="#SFBtn" styleClass="add-btn" stylesheets="@dashboard.css" text="SHOW" />
+                              <TableView fx:id="SFTBV" layoutX="31.0" layoutY="300.0" prefHeight="200.0" prefWidth="614.0">
+                                <columns>
+                                  <TableColumn fx:id="clientSF_col" prefWidth="95.19999694824219" text="Client" />
+                                  <TableColumn fx:id="carSF_col" prefWidth="176.0" text="Car" />
+                                    <TableColumn fx:id="qteSF_col" prefWidth="68.0" text="Quantity" />
+                                    <TableColumn fx:id="commSF_col" prefWidth="106.39996337890625" text="Command" />
+                                    <TableColumn fx:id="dateSF_col" prefWidth="167.19989013671875" text="Date" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="invoicePANE" layoutX="27.0" layoutY="27.0" prefHeight="504.0" prefWidth="652.0" styleClass="white-bg" stylesheets="@dashboard.css" visible="false">
+                           <children>
+                              <AnchorPane fx:id="invoicePrint" layoutX="22.0" layoutY="137.0" prefHeight="344.0" prefWidth="608.0" styleClass="white-bg" stylesheets="@dashboard.css">
+                                 <children>
+                                    <TableView fx:id="invoiceTBV" layoutX="32.0" layoutY="123.0" prefHeight="174.0" prefWidth="542.0">
+                                      <columns>
+                                        <TableColumn fx:id="clientInvoice_col" prefWidth="79.20001220703125" text="Client" />
+                                        <TableColumn fx:id="carInvoice_col" prefWidth="149.5999755859375" text="Car" />
+                                          <TableColumn fx:id="upInvoice_col" prefWidth="124.79998779296875" text="UP" />
+                                          <TableColumn fx:id="qteInvoice_col" prefWidth="59.20001220703125" text="Quantity" />
+                                          <TableColumn fx:id="amount_col" prefWidth="127.20001220703125" text="Amount" />
+                                      </columns>
+                                    </TableView>
+                                    <Label layoutX="32.0" layoutY="21.0" text="Bill N" />
+                                    <Label fx:id="clientLabel" layoutX="32.0" layoutY="78.0" prefHeight="30.0" prefWidth="140.0" textFill="#1e1919" />
+                                    <Label fx:id="dateLabel" layoutX="346.0" layoutY="21.0" prefHeight="30.0" prefWidth="140.0">
+                                       <font>
+                                          <Font name="Tahoma" size="12.0" />
+                                       </font></Label>
+                                    <Label fx:id="numberLabel" layoutX="346.0" layoutY="78.0" prefHeight="30.0" prefWidth="140.0" />
+                                    <Label fx:id="billLabel" layoutX="71.0" layoutY="20.0" prefHeight="18.0" prefWidth="30.0" textFill="#1e1919">
+                                       <font>
+                                          <Font name="Tahoma" size="12.0" />
+                                       </font></Label>
+                                    <Label layoutX="7.0" layoutY="311.0" prefHeight="18.0" prefWidth="269.0" text="APPROVED THIS INVOICE IN THE SUM OF" textFill="#335b1c">
+                                       <font>
+                                          <Font name="Tahoma" size="12.5" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="convertedLabel" layoutX="253.0" layoutY="307.0" prefHeight="26.0" prefWidth="297.0">
+                                       <font>
+                                          <Font name="Tahoma" size="12.0" />
+                                       </font></Label>
+                                    <Label layoutX="560.0" layoutY="312.0" text="ARIARY" textFill="#335b1c">
+                                       <font>
+                                          <Font name="Tahoma" size="12.5" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="33.0" layoutY="24.0" text="Client" />
+                              <ComboBox fx:id="clientBill" layoutX="130.0" layoutY="20.0" onMouseClicked="#ClientName" prefHeight="26.0" prefWidth="150.0" styleClass="textfield" stylesheets="@dashboard.css" />
+                              <Label layoutX="33.0" layoutY="90.0" text="Invoice Number" />
+                              <TextField fx:id="billN" layoutX="131.0" layoutY="86.0" prefHeight="26.0" prefWidth="150.0" styleClass="textfield" />
+                              <Label layoutX="326.0" layoutY="61.0" text="Date" />
+                              <DatePicker fx:id="dateBill" layoutX="404.0" layoutY="57.0" styleClass="textfield" />
+                              <Button fx:id="showBillBtn" layoutX="404.0" layoutY="99.0" mnemonicParsing="false" onAction="#ShowBTn" prefHeight="26.0" prefWidth="76.0" styleClass="add-btn" text="SHOW" />
+                              <Button fx:id="printBillBtn" layoutX="503.0" layoutY="99.0" mnemonicParsing="false" onAction="#PrintInvoice" prefHeight="26.0" prefWidth="76.0" styleClass="clear-btn" text="PRINT" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
